@@ -24,7 +24,9 @@ undirected_graph_type(PG::Type{<:AbstractPartitionedGraph}) = not_implemented()
 
 #Functions for the abstract type
 vertices(pg::AbstractPartitionedGraph) = vertices(unpartitioned_graph(pg))
-parent_graph(pg::AbstractPartitionedGraph) = parent_graph(unpartitioned_graph(pg))
+function parent_graph(pg::AbstractPartitionedGraph)
+  return parent_graph(underlying_graph(unpartitioned_graph(pg)))
+end
 function vertex_to_parent_vertex(pg::AbstractPartitionedGraph, vertex)
   return vertex_to_parent_vertex(unpartitioned_graph(pg), vertex)
 end
