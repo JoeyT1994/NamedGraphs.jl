@@ -1,5 +1,5 @@
-using Graphs: Graphs
 using ..NamedGraphs: AbstractNamedEdge
+using Graphs: Graphs
 
 abstract type AbstractPartitionEdge{V} <: AbstractNamedEdge{V} end
 
